@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}Что-то пошло не так{% endblock %}</title>
+  </head>
+  <body>
+    {% include "includes/header.html" %}
+    <main>
+      <div class="container">
+        {% block content %}Упс... кажется вы попали на страницу, на которой нет данных{% endblock %}
+      </div>
+    </main>
+    {% include "includes/footer.html" %}
+  </body>
+</html>
