@@ -1,18 +1,43 @@
-{% load django_bootstrap5 %}
-{% load static %}
-<div class="b-example-divider"></div>
-<div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><img src="{% static 'img/logo.png' %}" alt="Лого" width="65" height="65"></svg>
-        <span class="fs-4">Котопух</span>
-      </a>
-
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">О нас</a></li>
-        <li class="nav-item"><a href="{% url "catalog:view_catalog" %}" class="nav-link">Каталог товаров</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Сделать заказ</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Контакты</a></li>
-      </ul>
-    </header>
-</div>
+{% load django_bootstrap5 %} {% load static %}
+<header class="d-flex justify-content-center py-3">
+  {% with request.resolver_match.view_name as view_name%}
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a
+        href="{% url 'homepage:index' %}"
+        class="nav-link {% if view_name == 'homepage:index' %}active{% endif %}"
+        aria-current="page"
+        >Главная</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        href="{% url 'catalog:view_catalog' %}"
+        class="nav-link {% if view_name == 'catalog:view_catalog' %}active{% endif %}"
+        >Каталог</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        href="{% url 'order:order_info' %}"
+        class="nav-link {% if view_name == 'order:order_info' %}active{% endif %}"
+        >Доставка и оплата</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        href="{% url 'blog:news_feed' %}"
+        class="nav-link {% if view_name == 'blog:news_feed' %}active{% endif %}"
+        >О нас</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        href="{% url 'contact:view_contacts' %}"
+        class="nav-link {% if view_name == 'contact:view_contacts' %}active{% endif %}"
+        >Контакты</a
+      >
+    </li>
+  </ul>
+  {% endwith %}
+</header>

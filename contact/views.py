@@ -1,5 +1,7 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import render
+
 
 # Create your views here.
 def view_contacts(request):
-    return HttpResponse('Здесь будет находится контактная информация.')
+    template_name = 'contact/contact_info.html'
+    return render(request, template_name=template_name)

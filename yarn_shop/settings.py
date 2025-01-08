@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = BASE_DIR / 'templates' # Адрес папки с шаблонами
+TEMPLATES_DIR = BASE_DIR / 'templates'  # Адрес папки с шаблонами
 
 
 STATICFILES_DIRS = [
@@ -41,11 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'catalog.apps.CatalogConfig', # Регистрация приложения "catalog"
-    'homepage.apps.HomepageConfig', # Регистрация приложения "homepage"
-    'contact.apps.ContactConfig', # Регистрация приложения "contact"
-    'order.apps.OrderConfig', # Регистрация приложения "order"
-    'django_bootstrap5', # Подключение django-bootstrap5
+    'catalog.apps.CatalogConfig',  # Регистрация приложения "catalog"
+    'homepage.apps.HomepageConfig',  # Регистрация приложения "homepage"
+    'contact.apps.ContactConfig',  # Регистрация приложения "contact"
+    'order.apps.OrderConfig',  # Регистрация приложения "order"
+    'blog.apps.BlogConfig',  # Регистрация приложения "order"
+    'django_bootstrap5',  # Подключение django-bootstrap5
 ]
 
 MIDDLEWARE = [
