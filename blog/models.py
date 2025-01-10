@@ -22,8 +22,13 @@ class Category(models.Model):
 class News(models.Model):
     title = models.CharField('Название', max_length=200)
     content = models.TextField('Содержание')
-    author = models.ForeignKey(User, on_delete=models.SET_NULL,
-                               verbose_name='Автор') 
+    author = models.ForeignKey(User, null=True,
+                               on_delete=models.SET_NULL,
+                               verbose_name='Автор')
+    category = models.ForeignKey(Category, null=True,
+                                 on_delete=models.SET_NULL,
+                                 verbose_name='Категория')
+
     pub_date = models.DateTimeField('Дата публикации')
     is_on_page = models.BooleanField('Запись доступна для просмотра',
                                      default=False)
